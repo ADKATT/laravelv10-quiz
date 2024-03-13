@@ -102,4 +102,17 @@ class AnswerPolicy
         return $user->can('force_delete_any_answer');
     }
 
+    /**
+     * Determine whether the user can restore.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\Answer  $answer
+     * @return bool
+     */
+    public function restore(User $user, Answer $answer): bool
+    {
+        return $user->can('{{ Restore }}');
+    }
+
+
 }
